@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 import com.cg.dao.IStudentRepository;
 import com.cg.entities.Student;
 
-//import com.cg.spc.exception.StudentIDNotFoundException;
-
-
 @Service
 @Transactional
 public class StudentService implements IStudentService {
@@ -29,9 +26,7 @@ public class StudentService implements IStudentService {
 	public Student addStudent(Student student) 
 	{
 		Student stud = sDao.save(student);
-		return stud;
-//		return student;
-		
+		return stud;	
 	}
 
 	@Override

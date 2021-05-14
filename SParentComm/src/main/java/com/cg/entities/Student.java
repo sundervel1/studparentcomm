@@ -22,8 +22,6 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long userId;
 	private LocalDate dateOfBirth;
-//	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-//	private List<Subject> subjects = new ArrayList<>();
 	private String name;
 //	@OneToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name = "building_name")
@@ -36,11 +34,24 @@ public class Student {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "classId")
 	private ClassId currentClass;
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	private List<Subject> subjects = new ArrayList<>();
 	
 	public Student() {
 		super();
 		
 	}
+	
+	public Student(LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
+			ClassId currentClass, List<Subject> subjects) {
+		this.dateOfBirth = dateOfBirth;
+		this.name = name;
+		this.emailId = emailId;
+		this.mobileNumber = mobileNumber;
+		this.currentClass = currentClass;
+		this.subjects = subjects;
+	}
+
 	public Student(long userId, LocalDate dateOfBirth, String name, String emailId, String mobileNumber) {
 		super();
 		this.userId = userId;
@@ -108,13 +119,10 @@ public class Student {
 		this.currentClass = currentClass;
 	}
 	  
-//	public void addSubject(Subject subject) 
-//	{
-//		subject.setStudent(this);
-//		subjects.add(subject);
-//		
-//	}
-	
-	
+	public void addSubject(Subject subject) 
+	{
+		subject.setStudent(this);
+		subjects.add(subject);
+	}	
 	
 }

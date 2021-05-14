@@ -1,0 +1,19 @@
+{
+"dateOfBirth":"2001-02-25",
+"name":"Manasa",
+"emailId":"mansa@gmail.com",
+"mobileNumber": 9010001234,
+"currentClass" : {
+    "grade":7,
+    "division":"B" 
+  },
+"subjects":[
+    {
+      "title":"Python",
+      "student":null
+    },
+    {
+      "title":"Cplus",
+      "student":null
+    }]
+}

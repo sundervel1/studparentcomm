@@ -16,40 +16,38 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.details.StudentDetails;
 import com.cg.dto.CreateStudentRequest;
 import com.cg.entities.Student;
+import com.cg.entities.Subject;
 import com.cg.service.IStudentService;
 import com.cg.service.StudentService;
 import com.cg.util.StudentUtil;
 
-
 @RestController
 @RequestMapping(value = "/student")
-public class StudentController 
-{
+public class StudentController {
 
 	@Autowired
 	private IStudentService studentService;
-	
+
 	@Autowired
 	private StudentUtil studentUtil;
-	
+
 	@PostMapping(value = "/add")
-	public StudentDetails addStudent(@RequestBody CreateStudentRequest requestData) 
-	{
+	public StudentDetails addStudent(@RequestBody CreateStudentRequest requestData) {
 		System.out.println("requestData: " + requestData);
-		Student student = new Student(requestData.getDateOfBirth(),requestData.getName(),requestData.getEmailId(),requestData.getMobileNumber(),requestData.getCurrentClass());
+		Student student = new Student(requestData.getDateOfBirth(), requestData.getName(), requestData.getEmailId(),
+				requestData.getMobileNumber(), requestData.getCurrentClass());
+		List<Subject> subjectSet = requestData.getSubjects();
+		if (subjectSet != null) {
+			for (Subject subject : subjectSet) {
+				student.addSubject(subject);
+			}
+		}
 		System.out.println("stud : " + student);
 		Student stud = studentService.addStudent(student);
 		StudentDetails details = studentUtil.toDetails(stud);
-//		StudentDetails studDetails = new StudentDetails();
-//		studDetails.setDateOfBirth(requestData.getDateOfBirth());
-//		studDetails.setName(requestData.getName());
-//		studDetails.setEmailId(requestData.getEmailId());
-//		studDetails.setMobileNumber(requestData.getMobileNumber());
-//		studDetails.setCurrentClass(requestData.getCurrentClass());
-//		return studDetails;
 		return details;
 	}
-	
+
 //	@ResponseStatus(code = HttpStatus.CREATED)
 //	@PostMapping(value="/add")
 //	public StudentDetails addStudent(@RequestBody CreateStudentRequest requestData) 
