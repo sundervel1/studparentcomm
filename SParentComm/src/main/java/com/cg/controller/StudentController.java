@@ -6,7 +6,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,43 +50,16 @@ public class StudentController {
 		return details;
 	}
 
-//	@ResponseStatus(code = HttpStatus.CREATED)
-//	@PostMapping(value="/add")
-//	public StudentDetails addStudent(@RequestBody CreateStudentRequest requestData) 
-//	{
-//		System.out.println("req data: " + requestData);
-//		//Student student = new Student(requestData.getDateOfBirth(),requestData.getName(),requestData.getEmailId(),requestData.getMobileNumber());
-//		Student student = new Student(requestData.getDateOfBirth(), requestData.getCurrentClass(), requestData.getSubjects(), requestData.getName(),requestData.getAddress(), requestData.getClassDiary(), requestData.getEmailId(), requestData.getMobileNumber());
-//		List<Subject> subjectSet = requestData.getSubjects();
-//		if(subjectSet!=null) 
-//		{
-//			for (Subject subject : subjectSet)
-//			{
-//				student.addSubject(subject);
-//			}
-//	    }
-//		System.out.println("stud came: " + student);
-//		Student stud = studentService.addStudent(student);
-//		StudentDetails details = studentUtil.toDetails(student);
-//		return details;
-//				
-//    }
-//	
-//	
-//	
-//	@RequestMapping(method = RequestMethod.PUT, value = "/student")
-//	public Student updateStudent(@RequestBody @Valid Student student) 
-//	{
-//		
-//		return studentService.updateStudent(student);
-//				
-//    }
-//	
-//	
-//	@RequestMapping(method = RequestMethod.DELETE, value = "/accountants/{Id}")
-//	public Student deleteStudent(@RequestBody @Valid Student student) 
-//	{
-//		return studentService.deleteStudent(student);
-//				
-//    }
+	@PutMapping(value = "/update")
+	public Student updateStudent(@RequestBody @Valid Student student) 
+	{		
+		return studentService.updateStudent(student);				
+    }
+
+	@DeleteMapping(value = "/delete/{id}")
+	public Student deleteStudent(@RequestBody @Valid Student student) 
+	{
+		return studentService.deleteStudent(student);				
+    }
+	
 }

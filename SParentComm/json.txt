@@ -1,3 +1,5 @@
+http://localhost:8092/student/add
+POST
 {
 "dateOfBirth":"2001-02-25",
 "name":"Manasa",
@@ -17,3 +19,23 @@
       "student":null
     }]
 }
+
+http://localhost:8092/student/update
+PUT
+{
+"userId":128,
+"dateOfBirth":"2001-02-25",
+"name":"Manasa",
+"emailId":"manasa@gmail.com",
+"mobileNumber": 9010888234,
+"currentClass" : {
+	"classId":"135",
+    "grade":7,
+    "division":"A" 
+  },
+"subjects":[
+    {
+    }]
+}
+
+http://localhost:8092/student/delete/128

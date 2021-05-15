@@ -22,8 +22,6 @@ import com.cg.entities.Subject;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CreateStudentRequest {
-//	@Max(100)
-	// private long userId;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateOfBirth;
 	@NotBlank
