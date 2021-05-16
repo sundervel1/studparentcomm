@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.dao.IStudentRepository;
 import com.cg.entities.Student;
+import com.cg.exception.StudentIDNotFoundException;
 
 @Service
 @Transactional
@@ -37,11 +38,14 @@ public class StudentService implements IStudentService {
 	}
 
 	@Override
-	public Student deleteStudent(Student student) {
-		// Student stud = sDao.delete(student);
-		// sDao.delete(student);
-		// return student;
-		return student;
+	public Student deleteStudent(int id) {
+		Optional<Student> opt = sDao.findById(id);
+		if (!opt.isPresent()) {
+			throw new StudentIDNotFoundException("Student not found for id: " + id);
+		}
+		Student stud = opt.get();
+		sDao.delete(stud);
+		return stud;
 	}
 
 	@Override

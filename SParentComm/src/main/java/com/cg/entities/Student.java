@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long userId;
+	private int userId;
 	private LocalDate dateOfBirth;
 	private String name;
 //	@OneToOne(cascade = CascadeType.ALL)
@@ -31,15 +31,17 @@ public class Student {
 //	private ClassDiary classDiary;
 	private String emailId;
 	private String mobileNumber;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "classId")
 	private ClassId currentClass;
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Subject> subjects = new ArrayList<>();
 	
 	public Student() {
-		super();
 		
+	}
+	public Student(int userId) {
+		this.userId = userId;
 	}
 	
 	public Student(LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
@@ -52,7 +54,7 @@ public class Student {
 		this.subjects = subjects;
 	}
 
-	public Student(long userId, LocalDate dateOfBirth, String name, String emailId, String mobileNumber) {
+	public Student(int userId, LocalDate dateOfBirth, String name, String emailId, String mobileNumber) {
 		super();
 		this.userId = userId;
 		this.dateOfBirth = dateOfBirth;
@@ -82,10 +84,10 @@ public class Student {
 //		this.mobileNumber = mobileNumber;
 //		
 //	}
-	public long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public LocalDate getDateOfBirth() {
