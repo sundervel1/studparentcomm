@@ -39,3 +39,33 @@ PUT
 }
 
 http://localhost:8092/student/delete/128
+
+---------------------After adding Address ------------------
+
+http://localhost:8092/student/add
+POST
+{
+"dateOfBirth":"2001-11-25",
+"name":"Nithin",
+"emailId":"nithin@gmail.com",
+"mobileNumber": 9018881201,
+"currentClass" : {
+    "grade":8,
+    "division":"C" 
+  },
+"subjects":[
+    {
+      "title":"Java",
+      "student":null
+    },
+    {
+      "title":"Cplus",
+      "student":null
+    }],
+    "address": {
+        "buildingName":"CgVilla",
+        "streetName":"streetName",
+        "cityName":"Hyderabad",
+        "pincode":500016
+     }
+}
