@@ -7,6 +7,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.cg.entities.Address;
 import com.cg.entities.ClassId;
 import com.cg.entities.Subject;
 
@@ -27,19 +28,29 @@ public class CreateStudentRequest {
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String name;
-//		private Address address;
 //		private ClassDiary classDiary;
 	private String emailId;
 	private String mobileNumber;
 	private ClassId currentClass;
 	private List<Subject> subjects;
+	private Address address;
 
 	public CreateStudentRequest() {
 		super();
 	}
 
-	public CreateStudentRequest(LocalDate dateOfBirth, String name, String emailId,
-			String mobileNumber, ClassId currentClass, List<Subject> subjects) {
+//	public CreateStudentRequest(LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
+//			ClassId currentClass, List<Subject> subjects) {
+//		super();
+//		this.dateOfBirth = dateOfBirth;
+//		this.name = name;
+//		this.emailId = emailId;
+//		this.mobileNumber = mobileNumber;
+//		this.currentClass = currentClass;
+//		this.subjects = subjects;
+//	}
+	public CreateStudentRequest(LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
+			ClassId currentClass, List<Subject> subjects, Address address) {
 		super();
 		this.dateOfBirth = dateOfBirth;
 		this.name = name;
@@ -47,6 +58,7 @@ public class CreateStudentRequest {
 		this.mobileNumber = mobileNumber;
 		this.currentClass = currentClass;
 		this.subjects = subjects;
+		this.address = address;
 	}
 
 //		public CreateStudentRequest(@Max(100) LocalDate dateOfBirth, ClassId currentClass, List<Subject> subjects,
@@ -111,10 +123,20 @@ public class CreateStudentRequest {
 		this.currentClass = currentClass;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "CreateStudentRequest [dateOfBirth=" + dateOfBirth + ",\n name=" + name + ", emailId=" + emailId
-				+ ",\n mobileNumber=" + mobileNumber + ",\n currentClass=" + currentClass + "]";
+		return "CreateStudentRequest [dateOfBirth=" + dateOfBirth + ", name=" + name + ", emailId=" + emailId
+				+ ", mobileNumber=" + mobileNumber + ", currentClass=" + currentClass + ", subjects=" + subjects
+				+ ", address=" + address + "]";
 	}
+
 
 }

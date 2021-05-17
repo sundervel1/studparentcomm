@@ -23,12 +23,6 @@ public class Student {
 	private int userId;
 	private LocalDate dateOfBirth;
 	private String name;
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "building_name")
-//	private Address address;
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "classdairy_id")
-//	private ClassDiary classDiary;
 	private String emailId;
 	private String mobileNumber;
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -36,6 +30,12 @@ public class Student {
 	private ClassId currentClass;
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Subject> subjects = new ArrayList<>();
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "addressId")
+	private Address address;
+//	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+//	@JoinColumn(name = "classdairy_id")
+//	private ClassDiary classDiary;
 	
 	public Student() {
 		
@@ -70,20 +70,6 @@ public class Student {
 		this.mobileNumber = mobileNumber;
 		this.currentClass = currentClass;
 	}
-//	public Student(long userId, LocalDate dateOfBirth, ClassId currentClass, List<Subject> subjects, String name,
-//			Address address, ClassDiary classDiary, String emailId, String mobileNumber) {
-//		super();
-//		this.userId = userId;
-//		this.dateOfBirth = dateOfBirth;
-//		this.currentClass = currentClass;
-//		this.subjects = subjects;
-//		this.name = name;
-//		this.address = address;
-//		this.classDiary = classDiary;
-//		this.emailId = emailId;
-//		this.mobileNumber = mobileNumber;
-//		
-//	}
 	public int getUserId() {
 		return userId;
 	}
@@ -125,6 +111,18 @@ public class Student {
 	{
 		subject.setStudent(this);
 		subjects.add(subject);
+	}
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}	
 	
 }
