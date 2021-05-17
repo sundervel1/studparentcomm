@@ -33,9 +33,9 @@ public class Student {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "addressId")
 	private Address address;
-//	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JoinColumn(name = "classdairy_id")
-//	private ClassDiary classDiary;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "classdairy_id")
+	private ClassDiary classDiary;
 	
 	public Student() {
 		
@@ -123,6 +123,12 @@ public class Student {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public ClassDiary getClassDiary() {
+		return classDiary;
+	}
+	public void setClassDiary(ClassDiary classDiary) {
+		this.classDiary = classDiary;
 	}	
 	
 }

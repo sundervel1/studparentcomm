@@ -46,6 +46,7 @@ public class StudentController {
 			}
 		}
 		student.setAddress(requestData.getAddress());
+		student.setClassDiary(requestData.getClassDiary());
 		System.out.println("stud : " + student);
 		Student stud = studentService.addStudent(student);
 		StudentDetails details = studentUtil.toDetails(stud);

@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.cg.entities.Address;
+import com.cg.entities.ClassDiary;
 import com.cg.entities.ClassId;
 import com.cg.entities.Subject;
 
@@ -28,12 +29,12 @@ public class CreateStudentRequest {
 	@NotBlank
 	@Size(min = 2, max = 20)
 	private String name;
-//		private ClassDiary classDiary;
 	private String emailId;
 	private String mobileNumber;
 	private ClassId currentClass;
 	private List<Subject> subjects;
 	private Address address;
+	private ClassDiary classDiary;
 
 	public CreateStudentRequest() {
 		super();
@@ -131,12 +132,18 @@ public class CreateStudentRequest {
 		this.address = address;
 	}
 
+	public ClassDiary getClassDiary() {
+		return classDiary;
+	}
+
+	public void setClassDiary(ClassDiary classDiary) {
+		this.classDiary = classDiary;
+	}
+
 	@Override
 	public String toString() {
 		return "CreateStudentRequest [dateOfBirth=" + dateOfBirth + ", name=" + name + ", emailId=" + emailId
 				+ ", mobileNumber=" + mobileNumber + ", currentClass=" + currentClass + ", subjects=" + subjects
-				+ ", address=" + address + "]";
+				+ ", address=" + address + ", classDiary=" + classDiary + "]";
 	}
-
-
 }

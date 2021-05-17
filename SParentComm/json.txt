@@ -69,3 +69,38 @@ POST
         "pincode":500016
      }
 }
+
+---------------------After adding ClassDiary ------------------
+http://localhost:8092/student/add
+POST
+{
+"dateOfBirth":"2001-11-25",
+"name":"Nithin",
+"emailId":"nithin@gmail.com",
+"mobileNumber": 9018881201,
+"currentClass" : {
+    "grade":8,
+    "division":"C" 
+  },
+"subjects":[
+    {
+      "title":"Java",
+      "student":null
+    },
+    {
+      "title":"Cplus",
+      "student":null
+    }],
+    "address": {
+        "buildingName":"CgVilla",
+        "streetName":"streetName",
+        "cityName":"Hyderabad",
+        "pincode":500016
+     },
+     "classDiary":{
+        "diaryDetails":[{
+        	"detailsDate":"2021-04-22",
+        	"diaryNotes":{}
+        }]
+     }
+}
