@@ -1,0 +1,33 @@
+set pagesize 50
+set linesize 250
+col  USER_ID format 999999
+col  DATE_OF_BIRTH format a15
+col  EMAIL_ID format a20
+col  MOBILE_NUMBER format a15
+col  NAME format a15
+col  CLASS_ID format 999999
+col  ADDRESS_ID format 999999
+col  CLASSDAIRY_ID format 999999
+col  CLASS_ID format 99999
+col  DIVISION
+col  GRADE  format 99999
+col  TITLE format a20
+col  USER_ID format 99999
+col  ADDRESS_ID format 99999
+col  BUILDING_NAME format a20
+col  CITY_NAME format a20
+col  PINCODE format a20
+col  STREET_NAME format a20
+col CLASS_DIARY_ID format 99999
+col  notes format a20
+col  subject format a20
+
+select * from STUDENT_CP;
+select * from CLASSID_CP;
+select * from SUBJECT_CP;
+select * from ADDRESS;
+select * from classdiary;
+select * from diary_details;
+select * from diarynotes;
+select * from classdiary_diary_details;
+select * from notesattribute_cp;
