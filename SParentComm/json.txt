@@ -39,6 +39,7 @@ PUT
 }
 
 http://localhost:8092/student/delete/128
+DELETE
 
 ---------------------After adding Address ------------------
 
@@ -106,7 +107,7 @@ POST
 }
 
 ---------------------After adding DiaryDetails ------------------
-
+POST
 {
 "dateOfBirth":"2001-11-25",
 "name":"Nithin",
@@ -194,4 +195,7 @@ PUT
      }
     
 }
+
+http://localhost:8092/student/get/306
+GET
 

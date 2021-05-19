@@ -70,6 +70,20 @@ public class Student {
 		this.mobileNumber = mobileNumber;
 		this.currentClass = currentClass;
 	}
+	
+	public Student(int userId, LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
+			ClassId currentClass, List<Subject> subjects, Address address, ClassDiary classDiary) {
+		super();
+		this.userId = userId;
+		this.dateOfBirth = dateOfBirth;
+		this.name = name;
+		this.emailId = emailId;
+		this.mobileNumber = mobileNumber;
+		this.currentClass = currentClass;
+		this.subjects = subjects;
+		this.address = address;
+		this.classDiary = classDiary;
+	}
 	public int getUserId() {
 		return userId;
 	}

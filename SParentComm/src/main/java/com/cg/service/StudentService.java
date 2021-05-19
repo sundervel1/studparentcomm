@@ -26,12 +26,14 @@ public class StudentService implements IStudentService {
 
 	@Override
 	public Student addStudent(Student student) {
+		logger.info("*** adding : "+ student);
 		Student stud = sDao.save(student);
 		return stud;
 	}
 
 	@Override
 	public Student updateStudent(Student student) {
+		logger.info("*** udating : " + student);
 		Student stud = sDao.save(student);
 		return stud;
 
@@ -39,6 +41,7 @@ public class StudentService implements IStudentService {
 
 	@Override
 	public Student deleteStudent(int id) {
+		logger.info("***Deleting Student by Id: " + id + "***");
 		Optional<Student> opt = sDao.findById(id);
 		if (!opt.isPresent()) {
 			throw new StudentIDNotFoundException("Student not found for id: " + id);
@@ -55,17 +58,28 @@ public class StudentService implements IStudentService {
 		return studList;
 	}
 
-	@Override
-	public Student retrieveStudentById(int id) {
+//	@Override
+//	public Student retrieveStudentById(int id) {
 //		Optional<Student> opt = sDao.findById(Id);
 //		if(!opt.isPresent()) 
 //		{
 //			throw new StudentIDNotFoundException("Student not found for id: "+Id);
 //		}
 //		Student stud = opt.get();
-		logger.info("***Retrieving Student by Id: " + id + "***");
 //		return stud;
-		return null;
+//		return null;
+//	}
+
+	@Override
+	public Student getStudent(int id) {
+		logger.info("***Retrieving Student by Id: " + id + "***");
+		Optional<Student> opt = sDao.findById(id);
+		if(!opt.isPresent()) 
+		{
+			throw new StudentIDNotFoundException("Student not found for id: " + id);
+		}
+		Student stud = opt.get();
+		return stud;
 	}
 
 }

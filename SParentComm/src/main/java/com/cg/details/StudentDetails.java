@@ -3,24 +3,23 @@ package com.cg.details;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.cg.entities.Address;
+import com.cg.entities.ClassDiary;
 import com.cg.entities.ClassId;
+import com.cg.entities.Subject;
 
-
-//import com.cg.spc.entities.Address;
-//import com.cg.spc.entities.ClassDiary;
-//import com.cg.spc.entities.ClassId;
 
 public class StudentDetails 
 {
 	private long userId;
 	private LocalDate dateOfBirth;
-//	private List<SubjectDetails> subjects;
 	private String name;
-//	private Address address;
-//	private ClassDiary classDiary;
 	private String emailId;
 	private String mobileNumber;
 	private ClassId currentClass;
+	private List<Subject> subjects;
+	private Address address;
+	private ClassDiary classDiary;
 	public StudentDetails() {
 	}
 	
@@ -45,23 +44,24 @@ public class StudentDetails
 //		this.subjects = subjects;
 //	}
 
-//	public StudentDetails(long userId, LocalDate dateOfBirth, ClassId currentClass, List<SubjectDetails> subjects, String name,
-//			Address address, ClassDiary classDiary, String emailId, String mobileNumber) {
-//		super();
-//		this.userId = userId;
-//		this.dateOfBirth = dateOfBirth;
-//		this.currentClass = currentClass;
-//		this.subjects = subjects;
-//		this.name = name;
-//		this.address = address;
-//		this.classDiary = classDiary;
-//		this.emailId = emailId;
-//		this.mobileNumber = mobileNumber;
-//	}
      
 	public long getUserId() {
 		return userId;
 	}
+
+	public StudentDetails(long userId, LocalDate dateOfBirth, String name, String emailId, String mobileNumber,
+		ClassId currentClass, List<Subject> subjects, Address address, ClassDiary classDiary) {
+	super();
+	this.userId = userId;
+	this.dateOfBirth = dateOfBirth;
+	this.name = name;
+	this.emailId = emailId;
+	this.mobileNumber = mobileNumber;
+	this.currentClass = currentClass;
+	this.subjects = subjects;
+	this.address = address;
+	this.classDiary = classDiary;
+}
 
 	public void setUserId(long userId) {
 		this.userId = userId;
@@ -100,11 +100,6 @@ public class StudentDetails
 		this.mobileNumber = mobileNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "StudentDetails [userId=" + userId + ", dateOfBirth=" + dateOfBirth + ", name=" + name + ", emailId="
-				+ emailId + ", mobileNumber=" + mobileNumber + ", currentClass=" + currentClass + "]";
-	}
 
 	public ClassId getCurrentClass() {
 		return currentClass;
@@ -112,6 +107,36 @@ public class StudentDetails
 
 	public void setCurrentClass(ClassId currentClass) {
 		this.currentClass = currentClass;
+	}
+
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public ClassDiary getClassDiary() {
+		return classDiary;
+	}
+
+	public void setClassDiary(ClassDiary classDiary) {
+		this.classDiary = classDiary;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentDetails [userId=" + userId + ", dateOfBirth=" + dateOfBirth + ", name=" + name + ", emailId="
+				+ emailId + ", mobileNumber=" + mobileNumber + ", currentClass=" + currentClass + "]";
 	}
 
 

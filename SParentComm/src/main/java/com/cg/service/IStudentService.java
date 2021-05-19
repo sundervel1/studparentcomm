@@ -9,7 +9,8 @@ public interface IStudentService {
 	public Student updateStudent(Student student);
 	public Student deleteStudent(int id);
     public List<Student> retrieveAllStudents();
-	public Student retrieveStudentById(int id);
+//	public Student retrieveStudentById(int id);
+	public Student getStudent(int id);
 	
 
 }
