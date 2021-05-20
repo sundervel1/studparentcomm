@@ -199,3 +199,13 @@ PUT
 http://localhost:8092/student/get/306
 GET
 
+------------ add parent for a student with id 321 -----------------
+
+http://localhost:8092/parent/add/321
+POST
+{
+   "student": {},
+   "mobileNumber":"9011223344",
+   "emailId":"parentmanasa@gmail.com"
+}
+

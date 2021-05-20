@@ -2,7 +2,7 @@ set pagesize 50
 set linesize 250
 col  USER_ID format 999999
 col  DATE_OF_BIRTH format a15
-col  EMAIL_ID format a20
+col  EMAIL_ID format a30
 col  MOBILE_NUMBER format a15
 col  NAME format a15
 col  CLASS_ID format 999999
@@ -31,3 +31,4 @@ select * from diary_details;
 select * from diarynotes;
 select * from classdiary_diary_details;
 select * from notesattribute_cp;
+select * from parent;
