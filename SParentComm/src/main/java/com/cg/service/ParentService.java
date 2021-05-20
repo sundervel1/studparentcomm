@@ -15,6 +15,7 @@ import com.cg.dao.IStudentRepository;
 import com.cg.entities.ClassId;
 import com.cg.entities.Parent;
 import com.cg.entities.Student;
+import com.cg.exception.ParentNotFoundException;
 import com.cg.exception.StudentIDNotFoundException;
 
 @Service
@@ -60,16 +61,14 @@ public class ParentService implements IParentService {
 
 	@Override
 	public Parent retrieveParentById(int id) {
-//		Optional<Parent> opt = iparentRepository.findById(id);
-//		if(!opt.isPresent())
-//		{
-//			throw new ParentNotFoundException();
-//		}
-//		Parent parent  = opt.get();
-//		logger.info("***Retrieving Parent by Id: " + parent.getParentId() + "***");
-//		return parent;
-		return null;
-
+		Optional<Parent> opt = iparentRepository.findById(id);
+		if(!opt.isPresent())
+		{
+			throw new ParentNotFoundException("No Parent found for id: " + id);
+		}
+		Parent parent  = opt.get();
+		logger.info("***Retrieved Parent by Id: " + parent);
+		return parent;
 	}
 
 }

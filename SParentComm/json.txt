@@ -209,3 +209,6 @@ POST
    "emailId":"parentmanasa@gmail.com"
 }
 
+http://localhost:8092/parent/by/id/333
+GET
+

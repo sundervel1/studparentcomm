@@ -39,7 +39,12 @@ public class ParentController {
 
 	}
 
-//	@GetMapping("/parents/{classId}")
+	@GetMapping("/by/id/{id}")
+	public Parent retrieveParentById(@PathVariable("id") Integer id) {
+		return parentService.retrieveParentById(id);
+	}
+
+	//	@GetMapping("/parents/{classId}")
 //	public List<Parent> retrieveParentListByClass(@PathVariable("classId") ClassId classId) {
 //		return parentService.retrieveParentListByClass(classId);
 //	}
@@ -58,8 +63,4 @@ public class ParentController {
 //
 //	}
 //
-//	@GetMapping("/by/id/{id}")
-//	public Parent retrieveParentById(@PathVariable("id") Integer id) {
-//		return parentService.retrieveParentById(id);
-//	}
 }

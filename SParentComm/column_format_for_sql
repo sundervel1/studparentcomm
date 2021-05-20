@@ -22,6 +22,17 @@ col CLASS_DIARY_ID format 99999
 col  notes format a20
 col  subject format a20
 
+drop table STUDENT_CP cascade constraints;
+drop table CLASSID_CP cascade constraints;
+drop table SUBJECT_CP cascade constraints;
+drop table ADDRESS cascade constraints;
+drop table classdiary cascade constraints;
+drop table diary_details cascade constraints;
+drop table diarynotes cascade constraints;
+drop table classdiary_diary_details cascade constraints;
+drop table notesattribute_cp cascade constraints;
+drop table parent cascade constraints;
+
 select * from STUDENT_CP;
 select * from CLASSID_CP;
 select * from SUBJECT_CP;
